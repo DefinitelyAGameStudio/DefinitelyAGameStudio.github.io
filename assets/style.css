@@ -1,0 +1,143 @@
+/* Definitely A Real Studio - shared styles. Colours come from the Grimglade key art. */
+:root {
+  --night: #170d29;
+  --plum: #2a1745;
+  --plum-line: #43295f;
+  --ember: #e0662e;
+  --flame: #f5a142;
+  --bone: #fff1d6;
+  --muted: #cbb9d8;
+  --reaper: #b36bff;
+  --radius: 14px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 16px;
+  background: var(--night);
+  color: var(--bone);
+  font: 17px/1.6 "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+}
+
+a { color: var(--flame); text-underline-offset: 3px; }
+a:hover { color: var(--bone); }
+a:focus-visible, .button:focus-visible { outline: 3px solid var(--flame); outline-offset: 3px; }
+
+h1, h2, h3 {
+  font-family: "Lilita One", "Impact", system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.page { max-width: 960px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 56px; }
+.stack { display: grid; gap: 56px; }
+
+/* Header */
+.site-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.wordmark { font-family: "Lilita One", system-ui, sans-serif; font-size: 20px; color: var(--bone); text-decoration: none; }
+.wordmark span { color: var(--flame); }
+.nav { display: flex; gap: 18px; font-size: 15px; }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--bone); }
+
+/* Studio hero */
+.hero { display: grid; gap: 16px; padding-top: 24px; }
+.hero h1 { font-size: clamp(40px, 8vw, 76px); }
+.hero h1 .fine { display: block; font-size: 0.42em; color: var(--muted); margin-top: 10px; font-family: "Fredoka", system-ui, sans-serif; font-weight: 500; letter-spacing: 0; }
+.hero p { margin: 0; max-width: 60ch; color: var(--muted); font-size: 19px; }
+
+.eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--flame); font-weight: 600; }
+
+/* Game card */
+.games { display: grid; gap: 20px; }
+.game-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--plum), #3b1d3d 60%, #5a2a26);
+  border: 1px solid var(--plum-line);
+  text-decoration: none;
+  color: var(--bone);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.game-card:hover { transform: translateY(-3px); border-color: var(--ember); color: var(--bone); }
+.game-card img { width: 160px; height: 160px; border-radius: 28px; display: block; }
+.game-card h3 { font-size: 34px; }
+.game-card p { margin: 6px 0 12px; color: var(--muted); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-size: 13px; padding: 3px 10px; border-radius: 99px; background: rgba(255, 241, 214, 0.08); border: 1px solid var(--plum-line); color: var(--bone); }
+.tag.status { background: rgba(245, 161, 66, 0.15); border-color: rgba(245, 161, 66, 0.5); color: var(--flame); }
+
+/* About */
+.about { display: grid; gap: 14px; max-width: 65ch; }
+.about h2 { font-size: 34px; }
+.about p { margin: 0; }
+
+/* Game page */
+.game-hero { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; padding-top: 16px; }
+.game-hero img { width: 220px; height: 220px; border-radius: 40px; box-shadow: 0 20px 60px rgba(224, 102, 46, 0.25); }
+.game-hero h1 { font-size: clamp(48px, 9vw, 88px); }
+.game-hero .pitch { font-size: 20px; color: var(--muted); margin: 8px 0 16px; max-width: 48ch; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.button {
+  display: inline-block; padding: 10px 18px; border-radius: 99px; font-weight: 600; text-decoration: none;
+  background: var(--ember); color: var(--night);
+}
+.button.ghost { background: transparent; color: var(--bone); border: 1px solid var(--plum-line); }
+.button[aria-disabled="true"] { opacity: 0.55; pointer-events: none; }
+
+section h2 { font-size: 32px; margin-bottom: 18px; }
+.section-intro { margin: -8px 0 20px; color: var(--muted); max-width: 60ch; }
+
+/* The run timeline: a real sequence, so it is drawn as one */
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.timeline li { display: grid; grid-template-columns: 84px 1fr; gap: 18px; padding: 14px 0; border-top: 1px solid var(--plum-line); }
+.timeline li:first-child { border-top: 0; }
+.timeline time { font-family: "Lilita One", system-ui, sans-serif; font-size: 24px; color: var(--flame); font-variant-numeric: tabular-nums; }
+.timeline li.reaper time { color: var(--reaper); }
+.timeline strong { display: block; font-weight: 600; }
+.timeline span { color: var(--muted); font-size: 15px; }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.feature { padding: 20px; border-radius: var(--radius); background: var(--plum); border: 1px solid var(--plum-line); }
+.feature h3 { font-size: 22px; margin-bottom: 6px; color: var(--flame); }
+.feature p { margin: 0; color: var(--muted); font-size: 16px; }
+
+.counts { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+.count { padding: 16px; border-radius: var(--radius); border: 1px solid var(--plum-line); text-align: center; }
+.count b { display: block; font-family: "Lilita One", system-ui, sans-serif; font-size: 36px; font-weight: 400; color: var(--bone); font-variant-numeric: tabular-nums; }
+.count span { color: var(--muted); font-size: 14px; }
+
+/* Long-form text (privacy policy) */
+.prose { max-width: 68ch; display: grid; gap: 14px; }
+.prose h1 { font-size: clamp(36px, 6vw, 52px); }
+.prose h2 { font-size: 24px; margin-top: 18px; }
+.prose p, .prose ul { margin: 0; }
+.prose li + li { margin-top: 6px; }
+.prose .updated { color: var(--muted); }
+
+.site-foot { border-top: 1px solid var(--plum-line); padding-top: 20px; color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .game-card { grid-template-columns: 1fr; }
+  .game-card img { width: 120px; height: 120px; border-radius: 22px; }
+  .game-hero { grid-template-columns: 1fr; }
+  .game-hero img { width: 150px; height: 150px; border-radius: 30px; }
+  .timeline li { grid-template-columns: 64px 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card { transition: none; }
+  .game-card:hover { transform: none; }
+}
